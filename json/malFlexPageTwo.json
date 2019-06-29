@@ -1,0 +1,42 @@
+{
+    "type": "bubble",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Awoo's MyAnimeList Scraper - 2"
+        }
+      ]
+    },
+    "hero": {
+      "type": "image",
+      "url": "https://cdn.myanimelist.net/images/anime/5/82890.jpg",
+      "size": "full",
+      "aspectRatio": "25:5",
+      "aspectMode": "cover"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Synopsis",
+          "margin": "sm"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "text",
+          "text": "",
+          "margin": "lg",
+          "size": "sm",
+          "color": "#666666",
+          "wrap": true
+        }
+      ]
+    }
+  }
