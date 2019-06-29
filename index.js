@@ -1,11 +1,11 @@
 /* eslint-disable quotes */
-// require('./discord_bot');
+require('./discord_bot');
 
 const Express = require('express');
 const server = Express();
 
 
-// const routes = require('./Server_Routing');
+const routes = require('./Server_Routing');
 
 
 const indexController = require('./controller/index');
