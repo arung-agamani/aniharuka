@@ -1,11 +1,11 @@
 /* eslint-disable quotes */
-require('./discord_bot');
+// require('./discord_bot');
 
 const Express = require('express');
 const server = Express();
 
 
-const routes = require('./Server_Routing');
+// const routes = require('./Server_Routing');
 
 
 const indexController = require('./controller/index');
@@ -19,7 +19,7 @@ server.get('/', indexController);
 server.get('/about', aboutController);
 server.get('/createPost', createPostController);
 
-server.use('/', routes);
+// server.use('/', routes);
 
 server.listen((process.env.PORT || 8000), () => {
 	console.log('Server udah nyala dan jalan....');
