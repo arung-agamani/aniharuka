@@ -17,7 +17,7 @@ server.use(Express.static('./public'));
 
 server.get('/', indexController);
 server.get('/about', aboutController);
-server.get('/createPost', createPostController);
+server.get('/newpost', createPostController);
 
 // server.use('/', routes);
 

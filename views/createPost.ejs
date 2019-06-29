@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>Create Post -- Akatsuki no Hikari --</title>
+    <style>
+        @font-face {
+            font-family: Raleway;
+            src: url(/font/Raleway-font/Raleway-Regular.ttf);
+        }
+
+        body, h1, label {
+            font-family: Raleway;
+        }
+
+        body {
+            background-image: url(/img/inubashiri-momiji-touhou.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover
+        }
+    </style>
+</head>
+<body style="background-color: #CCC">
+    <div class="container pt-3">
+        <h1 class="h1">Create New Post</h1>
+        <hr>
+        <div class="container pt-3" style="background-color:rgba(255, 215, 155, 0.308)">
+                <div class="row">
+                  <div class="col-md-8">
+                    <form action="/posts/store" method="POST" encType="multipart/form-data">
+                        <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Title</label>
+                          <input type="text" name="title" placeholder="Title" class="form-control">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Description</label>
+                          <input type="text" name="description" placeholder="Description" class="form-control">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Content</label>
+                          <textarea name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group mt-3">
+                          <input type="file" name="image" class="form-control-file">
+                      </div>
+                      <div class="form-group my-4 text-center">
+                        <button class="btn btn-primary">Create Post</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
