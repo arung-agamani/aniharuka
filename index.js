@@ -4,9 +4,7 @@ require('./discord_bot');
 const Express = require('express');
 const server = Express();
 
-
 const routes = require('./Server_Routing');
-
 
 const indexController = require('./controller/index');
 const aboutController = require('./controller/aboutPage');
@@ -19,7 +17,7 @@ server.get('/', indexController);
 server.get('/about', aboutController);
 server.get('/newpost', createPostController);
 
-// server.use('/', routes);
+server.use('/', routes);
 
 server.listen((process.env.PORT || 8000), () => {
 	console.log('Server udah nyala dan jalan....');
