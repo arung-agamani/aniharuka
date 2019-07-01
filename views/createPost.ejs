@@ -20,46 +20,67 @@
             background-image: url(/img/inubashiri-momiji-touhou.jpg);
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover
+            background-size: cover;
+            background-attachment: fixed;
         }
     </style>
+    <script>
+      
+    </script>
 </head>
 <body style="background-color: #CCC">
     <div class="container pt-3">
         <h1 class="h1">Create New Post</h1>
-        <hr>
-        <div class="container pt-3" style="background-color:rgba(255, 215, 155, 0.308)">
-                <div class="row">
-                  <div class="col-md-8">
-                    <form action="/posts/store" method="POST" encType="multipart/form-data">
-                        <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
-                          <label>Title</label>
-                          <input type="text" name="title" placeholder="Title" class="form-control">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
-                          <label>Description</label>
-                          <input type="text" name="description" placeholder="Description" class="form-control">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
-                          <label>Content</label>
-                          <textarea name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group mt-3">
-                          <input type="file" name="image" class="form-control-file">
-                      </div>
-                      <div class="form-group my-4 text-center">
-                        <button class="btn btn-primary">Create Post</button>
-                      </div>
-                    </form>
+        <div class="container pt-3 pr-5" style="background-color:rgba(255, 215, 155, 0.308)">
+            <div class="row">
+              <div class="col-md-8">
+                <form action="/newpost" method="POST" enctype="multipart/form-data">
+                    <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>Title</label>
+                      <input type="text" name="title" placeholder="Title" class="form-control">
+                    </div>
                   </div>
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>Description</label>
+                      <input type="text" name="description" placeholder="Description" class="form-control">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>Content</label>
+                      <textarea id="content-input-box" name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <!-- <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <input type="file" name="postHeroImage" id="postHeroImage" class="form-control-file">
+                    </div>
+                  </div> -->
+                  <div class="form-group my-4 text-center">
+                    <button class="btn btn-primary">Create Post</button>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-4" style="background-color: #FFF5">
+                <div class="container pt-3">
+                  <h4>Word Count</h4>
+                  <p id="char-count">something something</p>
+                  <hr>
+                  <h4>Image Gallery</h4>
+                  <div class="container" id="image-gallery" style="background-color: #FFF5">
+                    <p>content here</p>
+                    <br><br><br><br><br><br><br>
+                  </div>
+                  <hr>
                 </div>
               </div>
+            </div>
+            <div class="row">
+              <hr>
+            </div>
+          </div>
     </div>
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.js"></script>

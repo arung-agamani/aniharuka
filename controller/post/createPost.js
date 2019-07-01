@@ -4,9 +4,13 @@ const PostSchema = new mongoose.Schema({
     title : String,
     description : String,
     content : String,
-    dateCreated : {
-        type : Date,
-        default : new Date(),
-    },
-    heroImage : String,
-})
+});
+
+const PostModel = mongoose.model('Post', PostSchema);
+
+module.exports = (req, res) => {
+    // console.log(req.body);
+    PostModel.create(req.body, (error, post) => {
+        res.render('createPost');
+    });
+};
