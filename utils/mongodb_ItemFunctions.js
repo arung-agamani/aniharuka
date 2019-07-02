@@ -2,7 +2,7 @@
 /* eslint-disable no-lonely-if */
 /* eslint-disable indent */
 const mongo = require('mongodb').MongoClient;
-const uri = process.env.MONGO_URL;
+const uri = process.env.MONGO_LINE_URL;
 /**
  * @param {Array} array_title
  */

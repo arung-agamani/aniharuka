@@ -1,3 +1,6 @@
-module.exports = (req, res) => {
-    res.render('layout/index');
+const Post = require('../models/BlogPost');
+
+module.exports = async (req, res) => {
+    const posts = await Post.find({});
+    res.render('layout/index', { posts });
 };

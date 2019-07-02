@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
     <title>Create Post -- Akatsuki no Hikari --</title>
     <style>
         @font-face {
@@ -47,17 +48,24 @@
                       <input type="text" name="description" placeholder="Description" class="form-control">
                     </div>
                   </div>
+                  <!--
                   <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                       <label>Content</label>
                       <textarea id="content-input-box" name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
                     </div>
                   </div>
-                  <!-- <div class="control-group">
+                   <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                       <input type="file" name="postHeroImage" id="postHeroImage" class="form-control-file">
                     </div>
                   </div> -->
+                  <div class="control-group">
+                    <label>Content</label>
+                    <input type="text" name="blogContent" class="d-none" id="blogContentInput">
+                    <div id="blogContent"></div>
+                  </div>
+                  
                   <div class="form-group my-4 text-center">
                     <button class="btn btn-primary">Create Post</button>
                   </div>
@@ -84,5 +92,22 @@
     </div>
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.js"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.1/js/froala_editor.pkgd.min.js'></script>
+    <script>
+      var update = function () {
+        var editor = this;
+        document.getElementById('blogContentInput').value = editor.html.get();
+        document.querySelector('div#image-gallery > p').textContent = document.getElementById('blogContentInput').value;
+      }
+
+      var froalaEditor = new FroalaEditor('#blogContent', {
+        heightMin : 300,
+        heightMax : 1000,
+        events : {
+          contentChanged : update,
+        },
+        toolbarButtons : [['bold', 'italic', 'underline', 'paragraphFormat'], ['undo', 'redo', 'html']]
+      });
+    </script>
 </body>
 </html>

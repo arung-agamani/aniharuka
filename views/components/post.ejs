@@ -1,0 +1,20 @@
+<% posts.forEach((post) => { %>
+    <section id="blog-content">
+        <div class="container">
+            <p id="post-date"><%= post.datePosted %></p>
+            <h1 class="h1" id="post-title"><%= post.title %></h1>
+            <h5 class="h5" id="post-author">by <%= post.author %></h5>
+            <hr>
+        </div>
+                
+        <div class="container" id="post-content">
+            <p>Description : <%= post.description %></p>
+            <div class="fr-view">
+                <% var content = post.blogContent; %>
+                <% content.slice(1,-1); %>
+                <%- content %>
+            </div>
+        </div>
+        <hr>
+    </section>
+<% }); %>

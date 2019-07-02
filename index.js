@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-// require('./discord_bot');
+require('./discord_bot');
 require('dotenv').config();
 const Express = require('express');
 const bodyParser = require('body-parser');
@@ -9,8 +9,7 @@ const mongoose = require('mongoose');
 
 // Env var consts
 const mongo_url = process.env.MONGO_URL;
-// console.log(process.env);
-// const routes = require('./Server_Routing');
+const routes = require('./Server_Routing');
 
 // Mongoose connect init
 mongoose.connect(mongo_url, { useNewUrlParser: true })
@@ -32,6 +31,7 @@ server.set('view engine', 'ejs');
 server.use(Express.static('./public'));
 server.use(bodyParser.urlencoded({ extended : true }));
 server.use(fileUpload());
+server.use('/', routes);
 
 // Server get request block
 server.get('/', indexController);
@@ -41,7 +41,6 @@ server.get('/newpost', createPostController);
 // Server post request block
 server.post('/newpost', storePostController);
 
-// server.use('/', routes);
 
 server.listen((process.env.PORT || 8000), () => {
 	console.log('Server udah nyala dan jalan....');
