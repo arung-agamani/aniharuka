@@ -9,11 +9,11 @@
                 
         <div class="container" id="post-content">
             <p>Description : <%= post.description %></p>
-            <div class="fr-view">
+            
                 <% var content = post.blogContent; %>
                 <% content.slice(1,-1); %>
                 <%- content %>
-            </div>
+            
         </div>
         <hr>
     </section>

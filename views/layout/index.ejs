@@ -2,7 +2,7 @@
 <head>
     <title>--- Akatsuki no Hikari ---</title>
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .hero-pic {
@@ -35,6 +35,19 @@
 
         .carousel-caption-bg {
         }
+
+        .navbar {
+            z-index: 9999;
+            position: fixed;
+            top : 0;
+            width: 100%
+        }
+        
+        @font-face {
+            font-family: Raleway;
+            src: url(/font/Raleway-font/Raleway-Regular.ttf);
+        }
+        
         
 
     </style>
@@ -53,39 +66,42 @@
                 </ul>
         </div>        
     </nav>
-    <div style="background-color:#555" class="">
-            <div class="container.fluid">
-                 <div class="carousel slide" id="carouselExampleControls" data-ride="carousel" data-interval="5000" data-wrap="true">
-                    <div class="carousel-inner hero-pic">
-                        <div class="carousel-item active hero-pic">
-                                <div class="carousel-caption carousel-caption-bg">
-                                        <h5>Akatsuki no Hikari</h5>
-                                        <p>Majesty Reincarnate</p>
-                                    </div>
-                            <img src="https://www.wallpaperflare.com/static/181/103/630/inubashiri-momiji-touhou-momiji-inubashiri-wallpaper.jpg" alt="First slide" class="d-block w-100 img-fluid blur-pic">
-                            
-                        </div>
-                        </div>
-                    <!-- <a href="#carouselExampleControls" class="carousel-control-prev" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                        <a href="#carouselExampleControls" class="carousel-control-next" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                     </a> -->
+    <div style="background-color:#555" id="carousel-main">
+        <!-- <div class="container.fluid">
+                <div class="carousel slide" id="carouselExampleControls" data-ride="carousel" data-interval="5000" data-wrap="true">
+                <div class="carousel-inner hero-pic">
+                    <div class="carousel-item active hero-pic">
+                            <div class="carousel-caption carousel-caption-bg">
+                                    <h5>Akatsuki no Hikari</h5>
+                                    <p>Majesty Reincarnate</p>
+                                </div>
+                        <img src="https://www.wallpaperflare.com/static/181/103/630/inubashiri-momiji-touhou-momiji-inubashiri-wallpaper.jpg" alt="First slide" class="d-block w-100 img-fluid blur-pic">
+                        
+                    </div>
+                    </div>
+                
+            </div>
+        </div> -->
+        
+    </div>
+    <div class="jumbotron jumbotron-fluid mb-0" style="background-image: url(https://www.wallpaperflare.com/static/181/103/630/inubashiri-momiji-touhou-momiji-inubashiri-wallpaper.jpg); background-size: cover; background-position: center center; height: 100vh; vertical-align: middle">
+        <div class="container" >
+            <div class="row align-items-end" style="height: 85vh">
+                <div class="col">
+                    <h3 style="color: white; font-family:Raleway;">Akatsuki no Hikari</h3>
                 </div>
+                    
+            </div>
+                
         </div>
     </div>
 
-    <section class="bg-dark">
+    <section class="bg-dark" id="banner-blog-post">
         <div class="container">
-            <div class="row">
+            <div class="row pt-3 pb-3">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <br>
-                    <h2 class="h2 text-light text-center">Blog Posts</h2>
-                    <br>
+                    <h2 class="h2 text-light text-center" style="font-family:Raleway;">Blog Posts</h2>
                 </div>
                 <div class="col-3"></div>
             </div>
@@ -150,6 +166,22 @@
             </div>
         </div>
     </section>
-    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {    
+            $(function () {
+                $('#post-content').find('img').addClass('img-fluid');
+                $('.navbar').hide();
+
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > ($('.jumbotron').height() + $('#banner-blog-post').height())) {
+                        $('.navbar').fadeIn();
+                    } else {
+                        $('.navbar').fadeOut();
+                    }
+                });
+            });
+        });
+        </script>
     <script src="/vendor/bootstrap/js/bootstrap.js"></script>
 </body>
