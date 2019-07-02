@@ -13,7 +13,7 @@ const routes = require('./Server_Routing');
 
 // Mongoose connect init
 mongoose.connect(mongo_url, { useNewUrlParser: true })
-	.then(() => { console.log('Connected to MongoDB')})
+	.then(() => { console.log('Connected to MongoDB'); })
 	.catch(err => { console.error('Something went wrong', err); });
 
 
