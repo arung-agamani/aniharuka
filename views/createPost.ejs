@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <link href="https://cdn.quilljs.com/1.3.4/quill.snow.css" rel="stylesheet"> 
+    <script src="https://cdn.quilljs.com/1.3.4/quill.js"></script>
     <title>Create Post -- Akatsuki no Hikari --</title>
     <style>
         @font-face {
@@ -23,6 +24,14 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
+        }
+
+        .ql-editor {
+          min-height: 60vh;
+        }
+
+        .ql-toolbar {
+          background-color: white;
         }
     </style>
     <script>
@@ -63,7 +72,7 @@
                   <div class="control-group">
                     <label>Content</label>
                     <input type="text" name="blogContent" class="d-none" id="blogContentInput">
-                    <div id="blogContent"></div>
+                    <div id="blogContent" style="background-color: white"></div>
                   </div>
                   
                   <div class="form-group my-4 text-center">
@@ -78,7 +87,7 @@
                   <hr>
                   <h4>Image Gallery</h4>
                   <div class="container" id="image-gallery" style="background-color: #FFF5">
-                    <p>content here</p>
+                    <p id='logger'>content here</p>
                     <br><br><br><br><br><br><br>
                   </div>
                   <hr>
@@ -94,20 +103,51 @@
     <script src="/vendor/bootstrap/js/bootstrap.js"></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.1/js/froala_editor.pkgd.min.js'></script>
     <script>
-      var update = function () {
-        var editor = this;
-        document.getElementById('blogContentInput').value = editor.html.get();
-        document.querySelector('div#image-gallery > p').textContent = document.getElementById('blogContentInput').value;
-      }
+      var quillToolbarOptions = [
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                ['blockquote', 'code-block'],
 
-      var froalaEditor = new FroalaEditor('#blogContent', {
-        heightMin : 300,
-        heightMax : 1000,
-        events : {
-          contentChanged : update,
+                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+                [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+                [{ 'direction': 'rtl' }],                         // text direction
+
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [ 'link', 'image', 'video', 'formula' ],          // add's image support
+                [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+
+                ['clean']                                         // remove formatting button
+            ];
+      var quill = new Quill('#blogContent', {
+        theme : 'snow',
+        modules : {
+          toolbar : {
+            container : quillToolbarOptions,
+            handlers : {
+              image : imageHandler
+            }
+          }
         },
-        toolbarButtons : [['bold', 'italic', 'underline', 'paragraphFormat'], ['undo', 'redo', 'html']]
+        
       });
+
+      function imageHandler() {
+            var range = this.quill.getSelection();
+            var value = prompt('What is the image URL');
+            if(value){
+                this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
+            }
+        }
+      
+      setInterval(() => {
+        document.getElementById('logger').innerText = quill.root.innerHTML;
+        document.getElementById('blogContentInput').value = quill.root.innerHTML;
+      }, 1000);
+      
     </script>
 </body>
 </html>

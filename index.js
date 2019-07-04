@@ -36,7 +36,7 @@ server.use('/', routes);
 // Server get request block
 server.get('/', indexController);
 server.get('/about', aboutController);
-// server.get('/newpost', createPostController);
+server.get('/newpost', createPostController);
 
 // Server post request block
 server.post('/newpost', storePostController);
