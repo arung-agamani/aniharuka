@@ -2,7 +2,8 @@
     <section id="blog-content">
         <div class="container">
             <p id="post-date"><%= post.datePosted %></p>
-            <h1 class="h1" id="post-title"><%= post.title %></h1>
+            <a href="/blog/<%= post.link %>">
+            <h1 class="h1" id="post-title"><%= post.title %></h1></a>
             <h5 class="h5" id="post-author">by <%= post.author %></h5>
             <hr>
         </div>

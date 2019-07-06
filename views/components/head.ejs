@@ -1,0 +1,62 @@
+<head>
+    <% var title = ''; %>
+    <% if (posts.length == 1) { %>
+    <%    title = posts[0].title; %>
+    <% } else { %>
+    <%    title = 'Akatsuki no Hikari'; } %>
+    <title><%= title %></title>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-pic {
+            max-height: 100vh;
+            vertical-align: middle;
+        }
+
+        .blur-pic {
+            filter: blur(0px);
+            -webkit-filter: blur(0px);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        body {
+            background-image: url(/img/inubashiri-momiji-touhou.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #post-content {
+            text-align: justify;
+        }
+
+        .carousel-caption-bg {
+        }
+
+        .navbar {
+            z-index: 9999;
+            position: fixed;
+            top : 0;
+            width: 100%
+        }
+        
+        @font-face {
+            font-family: Raleway;
+            src: url(/font/Raleway-font/Raleway-Regular.ttf);
+        }
+        
+        
+
+    </style>
+</head>

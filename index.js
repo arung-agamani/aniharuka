@@ -22,6 +22,7 @@ const indexController = require('./controller/index');
 const aboutController = require('./controller/aboutPage');
 const createPostController = require('./controller/createPost');
 const storePostController = require('./controller/post/createPost');
+const blogPostRouteController = require('./controller/blogRoute');
 
 // Server Set block
 server.set('views', './views');
@@ -37,6 +38,7 @@ server.use('/', routes);
 server.get('/', indexController);
 server.get('/about', aboutController);
 server.get('/newpost', createPostController);
+server.get('/blog/*', blogPostRouteController);
 
 // Server post request block
 server.post('/newpost', storePostController);
