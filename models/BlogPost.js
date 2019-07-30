@@ -10,6 +10,7 @@ const PostSchema = new mongoose.Schema({
     description : String,
     blogContent : String,
     link : String,
+    blogContentDelta : Object,
 });
 
 const PostModel = mongoose.model('Post', PostSchema);

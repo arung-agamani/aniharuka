@@ -1,20 +1,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {    
-            $(function () {
-                $('#post-content').find('img').addClass('img-fluid');
-                $('.navbar').hide();
+<script>
+    $(document).ready(function () {    
+        $(function () {
+            $('#post-content').find('img').addClass('img-fluid');
+            $('.navbar').hide();
+            var navbarToggle = true;
+            var height = $('.jumbotron').height() + $('#banner-blog-post').height();
+            if (height == 0 || height == undefined) { navbarToggle = false; }
 
-                $(window).scroll(function () {
+            $(window).scroll(function () {
+                if (navbarToggle) {
                     if ($(this).scrollTop() > ($('.jumbotron').height() + $('#banner-blog-post').height())) {
                         $('.navbar').fadeIn();
                     } else {
                         $('.navbar').fadeOut();
                     }
-                });
-
-                $('#post-content > p > img').addClass('img-fluid')
+                } else {
+                    $('.navbar').show();
+                }
+                
             });
+
+            $('#post-content > p > img').addClass('img-fluid')
         });
-        </script>
-    <script src="/vendor/bootstrap/js/bootstrap.js"></script>
+    });
+
+    function editPost(link) {
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/editpost'
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = 'editLink';
+        hiddenField.value = link;
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();
+    }
+    </script>
+<script src="/vendor/bootstrap/js/bootstrap.js"></script>

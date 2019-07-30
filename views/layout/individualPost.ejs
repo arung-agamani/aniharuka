@@ -3,5 +3,13 @@
 <body>
     <%- include('../components/navbar') %>
     <%- include('../components/postContainer'); %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(function () {
+                $('#post-content > p > img').addClass('img-fluid');
+            });            
+        });
+    </script>
     <%- include('../components/footScripts'); %>
 </body>

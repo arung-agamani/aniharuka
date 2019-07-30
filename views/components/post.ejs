@@ -2,6 +2,9 @@
     <section id="blog-content">
         <div class="container">
             <p id="post-date"><%= post.datePosted %></p>
+            <% if (logged) { %>
+            <button class="btn btn-primary" onclick="editPost('<%= post.link %>')">Edit Post</button>
+            <% } %>
             <a href="/blog/<%= post.link %>">
             <h1 class="h1" id="post-title"><%= post.title %></h1></a>
             <h5 class="h5" id="post-author">by <%= post.author %></h5>
@@ -18,4 +21,5 @@
         </div>
         <hr>
     </section>
+
 <% }); %>
