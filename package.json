@@ -23,7 +23,7 @@
     "dotenv": "^8.0.0",
     "ejs": "^2.6.2",
     "eslint": "^4.19.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-fileupload": "^1.1.5",
     "express-session": "^1.16.2",
     "feedparser": "^2.2.9",
